@@ -1,8 +1,9 @@
+import java.util.ArrayList;
 public class Estudiante {
     
     private String nombre; 
     private String apellido;
-    private double[] notas;
+    private ArrayList<Double> notas;
     private int cantidadNotasIngresadas;
 
 
@@ -11,7 +12,7 @@ public class Estudiante {
         {      
             this.nombre = nombre;
             this.apellido = apellido;
-            this.notas = new double[3];
+            this.notas = new ArrayList<>();
             this.cantidadNotasIngresadas = 0;
         }
 
@@ -27,7 +28,7 @@ public class Estudiante {
             return nombre;
         }
 
-        public double[] getNotas() {
+        public ArrayList<Double> getNotas() {
             return notas;
         }
 
@@ -42,8 +43,8 @@ public class Estudiante {
         public void setNombre(String nombre) {
             this.nombre = nombre;
         }
-        
-        public void setNotas(double[] notas) {
+
+        public void setNotas(ArrayList<Double> notas) {
             this.notas = notas;
         }
         
@@ -56,6 +57,10 @@ public class Estudiante {
             }
 
             return false; 
+        }
+
+        public void calcularPromedio(){
+            
         }
 
         
