@@ -73,7 +73,11 @@ public class Estudiante {
             return promedio;
         }
 
-        
+        //Comprobar si el estudiante aprueba    
+        public boolean aprueba(){
+
+            return calcularPromedio() >= 3;
+        }
 
 
 
