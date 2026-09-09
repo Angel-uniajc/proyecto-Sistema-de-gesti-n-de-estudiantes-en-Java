@@ -43,4 +43,23 @@ public class GestionEstudiantes {
         return null;
     }
 
+    // Mostrar todos los estudiantes registrados
+    public void mostrarEstudiantes() {
+        if (estudiantes.isEmpty()) {
+            System.out.println("No hay estudiantes registrados.");
+            return;
+        }
+
+        // Mostrar la información de cada estudiante
+        System.out.println("----- Lista de estudiantes -----");
+        for (Estudiante estudiante : estudiantes) {
+            System.out.println("ID: " + estudiante.getId());
+            System.out.println("Nombre: " + estudiante.getNombre() + " " + estudiante.getApellido());
+            System.out.println("Notas: " + estudiante.getNotas());
+            System.out.println("Promedio: " + estudiante.calcularPromedio());
+            System.out.println("Aprueba: " + (estudiante.aprueba() ? "Sí" : "No"));
+            System.out.println("---------------------------------");
+        }
+    }
+
 }
