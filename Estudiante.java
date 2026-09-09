@@ -16,41 +16,50 @@ public class Estudiante {
             this.id = id;
         }
 
-        public String getId() {
+        public String getId() 
+        {
             return id;
         }
 
-        public String getApellido() {
+        public String getApellido() 
+        {
             return apellido;
         }
 
-        public String getNombre() {
+        public String getNombre() 
+        {
             return nombre;
         }
 
-        public ArrayList<Double> getNotas() {
+        public ArrayList<Double> getNotas() 
+        {
             return notas;
         }
 
-        public void setApellido(String apellido) {
+        public void setApellido(String apellido) 
+        {
             this.apellido = apellido;
         }
 
 
-        public void setNombre(String nombre) {
+        public void setNombre(String nombre) 
+        {
             this.nombre = nombre;
         }
 
-        public void setNotas(ArrayList<Double> notas) {
+        public void setNotas(ArrayList<Double> notas) 
+        {
             this.notas = notas;
         }
 
-        public void setId(String id) {
+        public void setId(String id) 
+        {
             this.id = id;
         }
 
         // Limitador de 3 notas por estudiante
-        public void agregarnotas( double nota){
+        public void agregarnotas( double nota)
+        {
 
             if (notas.size() < 3){
                 notas.add(nota);
@@ -61,21 +70,25 @@ public class Estudiante {
         }
 
         //calcular promedio de cada estudiante
-        public double calcularPromedio(){
-            double suma = 0;            
+        public double calcularPromedio()
+        {
 
-            for ( int i = 0; i < notas.size(); i++){
-                suma =+ notas.get(i);
+            if(notas.isEmpty()){
+                return 0;
             }
 
-            double promedio = suma / notas.size(); 
+            double suma = 0;            
 
-            return promedio;
+            for ( double nota : notas){
+                suma =+ nota;
+            }
+
+            return  suma / notas.size();
         }
 
         //Comprobar si el estudiante aprueba    
-        public boolean aprueba(){
-
+        public boolean aprueba()
+        {
             return calcularPromedio() >= 3;
         }
 
