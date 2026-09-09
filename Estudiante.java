@@ -7,12 +7,23 @@ public class Estudiante {
 
 
     // Contructor estudiante con arrays para 3 notas 
-        public Estudiante (String nombre, String apellido, int cantidadNotasIngresadas)
+        public Estudiante (String nombre, String apellido)
         {      
             this.nombre = nombre;
             this.apellido = apellido;
             this.notas = new double[3];
             this.cantidadNotasIngresadas = 0;
+        }
+
+        public boolean agregarnotas( double nota){
+
+            if (cantidadNotasIngresadas < notas.length){
+                notas[cantidadNotasIngresadas] = nota;
+                cantidadNotasIngresadas ++;
+                return true;
+            }
+
+            return false; 
         }
 
         
