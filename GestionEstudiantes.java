@@ -21,4 +21,16 @@ public class GestionEstudiantes {
         System.out.println("Estudiante registrado correctamente.");
     }
 
+    // Eliminar un estudiante por id
+    public boolean eliminar(String id) {
+        Estudiante estudiante = buscar(id);
+        if (estudiante != null) {
+            estudiantes.remove(estudiante);
+            System.out.println("Estudiante eliminado correctamente.");
+            return true;
+        }
+        System.out.println("No se encontró un estudiante con el id " + id);
+        return false;
+    }
+
 }
