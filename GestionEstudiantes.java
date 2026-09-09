@@ -62,4 +62,9 @@ public class GestionEstudiantes {
         }
     }
 
+    // Getter para obtener la lista de estudiantes
+    public ArrayList<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
 }
