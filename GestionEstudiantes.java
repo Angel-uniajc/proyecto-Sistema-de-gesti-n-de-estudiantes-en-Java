@@ -5,4 +5,9 @@ public class GestionEstudiantes {
     //ArrayList para almacenar los estudiantes
     private ArrayList<Estudiante> estudiantes;
 
+    //Constructor de la clase GestionEstudiantes
+    public GestionEstudiantes() {
+        this.estudiantes = new ArrayList<>();
+    }
+
 }
