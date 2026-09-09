@@ -4,26 +4,26 @@ public class Estudiante {
     private String nombre; 
     private String apellido;
     private ArrayList<Double> notas;
-    private int cantidadNotasIngresadas;
+    private String id;
 
 
     // Contructor estudiante con arrays para 3 notas 
-        public Estudiante (String nombre, String apellido)
+        public Estudiante (String nombre, String apellido, String id)
         {      
             this.nombre = nombre;
             this.apellido = apellido;
             this.notas = new ArrayList<>();
-            this.cantidadNotasIngresadas = 0;
+            this.id = id;
         }
 
+        public String getId() {
+            return id;
+        }
+        
         public String getApellido() {
             return apellido;
         }
 
-        public int getCantidadNotasIngresadas() {
-            return cantidadNotasIngresadas;
-        }
-        
         public String getNombre() {
             return nombre;
         }
@@ -36,9 +36,6 @@ public class Estudiante {
             this.apellido = apellido;
         }
 
-        public void setCantidadNotasIngresadas(int cantidadNotasIngresadas) {
-            this.cantidadNotasIngresadas = cantidadNotasIngresadas;
-        }
 
         public void setNombre(String nombre) {
             this.nombre = nombre;
@@ -47,16 +44,19 @@ public class Estudiante {
         public void setNotas(ArrayList<Double> notas) {
             this.notas = notas;
         }
-        
-        public boolean agregarnotas( double nota){
 
-            if (cantidadNotasIngresadas < notas.length){
-                notas[cantidadNotasIngresadas] = nota;
-                cantidadNotasIngresadas ++;
-                return true;
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public void agregarnotas( double nota){
+
+            if (notas.size() < 3){
+                notas.add(nota);
+            } else {
+                System.out.println("El estudiante ya tiene 3 notas");
             }
 
-            return false; 
         }
 
         public void calcularPromedio(){
