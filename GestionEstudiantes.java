@@ -33,4 +33,14 @@ public class GestionEstudiantes {
         return false;
     }
 
+    // Buscar un estudiante por id
+    public Estudiante buscar(String id) {
+        for (Estudiante estudiante : estudiantes) {
+            if (estudiante.getId().equals(id)) {
+                return estudiante;
+            }
+        }
+        return null;
+    }
+
 }
