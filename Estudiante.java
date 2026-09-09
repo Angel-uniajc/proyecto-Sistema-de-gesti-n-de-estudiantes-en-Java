@@ -19,7 +19,7 @@ public class Estudiante {
         public String getId() {
             return id;
         }
-        
+
         public String getApellido() {
             return apellido;
         }
@@ -49,6 +49,7 @@ public class Estudiante {
             this.id = id;
         }
 
+        // Limitador de 3 notas por estudiante
         public void agregarnotas( double nota){
 
             if (notas.size() < 3){
@@ -59,8 +60,17 @@ public class Estudiante {
 
         }
 
-        public void calcularPromedio(){
-            
+        //calcular promedio de cada estudiante
+        public double calcularPromedio(){
+            double suma = 0;            
+
+            for ( int i = 0; i < notas.size(); i++){
+                suma =+ notas.get(i);
+            }
+
+            double promedio = suma / notas.size(); 
+
+            return promedio;
         }
 
         
