@@ -15,6 +15,38 @@ public class Estudiante {
             this.cantidadNotasIngresadas = 0;
         }
 
+        public String getApellido() {
+            return apellido;
+        }
+
+        public int getCantidadNotasIngresadas() {
+            return cantidadNotasIngresadas;
+        }
+        
+        public String getNombre() {
+            return nombre;
+        }
+
+        public double[] getNotas() {
+            return notas;
+        }
+
+        public void setApellido(String apellido) {
+            this.apellido = apellido;
+        }
+
+        public void setCantidadNotasIngresadas(int cantidadNotasIngresadas) {
+            this.cantidadNotasIngresadas = cantidadNotasIngresadas;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+        
+        public void setNotas(double[] notas) {
+            this.notas = notas;
+        }
+        
         public boolean agregarnotas( double nota){
 
             if (cantidadNotasIngresadas < notas.length){
