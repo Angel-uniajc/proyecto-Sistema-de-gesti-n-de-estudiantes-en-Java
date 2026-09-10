@@ -38,7 +38,38 @@ public class Archivos {
 
 } catch (IOException)
         System.out.println("ERROR AL GUARDAR");
-        
+
 
 }
 }
+
+ // Cargar estudiantes desde el archivo
+    public static ArrayList<Estudiante> cargarEstudiantes() { //
+
+        ArrayList<Estudiante> estudiantes = new ArrayList<>();//creamos una lista para guardar los estudiantes
+
+        File archivo = new File(name_archivo); // Creamos un objeto File para el archivo
+
+        // Si el archivo no existe, devuelve una lista vacía
+        if (!archivo.exists()) {
+            return estudiantes;
+        }
+
+        try (BufferedReader lector = new BufferedReader(
+                new FileReader(name_archivo))) {
+
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+
+                String[] datos = linea.split(";");
+
+                String id = datos[0];
+                String nombre = datos[1];
+                String apellido = datos[2];
+
+                Estudiante estudiante = new Estudiante(
+                    nombre,
+                    apellido,
+                    id
+                );
