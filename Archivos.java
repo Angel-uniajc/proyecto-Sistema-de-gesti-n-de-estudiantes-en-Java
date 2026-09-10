@@ -1,4 +1,5 @@
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Archivos {
@@ -30,9 +31,14 @@ public class Archivos {
 
     
         }
+            System.out.println("save");
 
+            
     
 
-}
+} catch (IOException)
+        System.out.println("ERROR AL GUARDAR");
+        
+
 }
 }
