@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -36,8 +40,10 @@ public class Archivos {
             
     
 
-} catch (IOException)
-        System.out.println("ERROR AL GUARDAR");
+} catch (IOException  e) {
+ System.out.println("ERROR AL GUARDAR");
+}
+       
 
 
 }
@@ -60,7 +66,7 @@ public class Archivos {
 
             String linea;
 
-            while ((linea = lector.readLine()) != null) {
+            while ((linea = lector.readLine()) != null) { //recorremos la linea del archivo
 
                 String[] datos = linea.split(";");
 
@@ -68,8 +74,33 @@ public class Archivos {
                 String nombre = datos[1];
                 String apellido = datos[2];
 
-                Estudiante estudiante = new Estudiante(
+                Estudiante estudiante = new Estudiante( //creamos un objeto Estudiante
                     nombre,
                     apellido,
                     id
                 );
+
+            // Si tiene notas
+                if (datos.length > 3 && !datos[3].isEmpty()) { //
+
+                    String[] notas = datos[3].split(",");//separamos las notas
+                    // Si tiene notas y son números (no se puede hacer con el tipo Double)
+                    for (String nota : notas) {
+                        estudiante.agregarnotas(
+                            Double.parseDouble(nota)
+                        );
+                    }
+                }
+
+                estudiantes.add(estudiante); //agregamos el estudiante a la lista
+            }
+            // Si no tiene notas o no son números (no se puede hacer con el tipo Double)
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Error al cargar los estudiantes.");
+        }
+
+        return estudiantes;
+    }
+
+
+
