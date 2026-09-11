@@ -71,12 +71,21 @@ public class Archivos {
                 String id = datos[0];
                 String nombre = datos[1];
                 String apellido = datos[2];
+                String notasTexto = datos[3];
 
                 Estudiante estudiante = new Estudiante(
                     nombre,
                     apellido,
                     id
                 );
+
+                if (!notasTexto.isEmpty()) {
+                    String[] notasArray = notasTexto.split(",");
+
+                    for (String notaStr : notasArray) {
+                        estudiante.agregarnotas(Double.parseDouble(notaStr));
+                    }
+                }
 
                 estudiantes.add(estudiante);
             }

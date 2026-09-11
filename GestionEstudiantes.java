@@ -6,8 +6,7 @@ public class GestionEstudiantes {
 
     //Constructor de la clase GestionEstudiantes
     public GestionEstudiantes() {
-        this.estudiantes = new ArrayList<>();
-        Archivos.cargarEstudiantes();
+        this.estudiantes = Archivos.cargarEstudiantes();
     }
 
     // Registrar un nuevo estudiante
@@ -27,6 +26,7 @@ public class GestionEstudiantes {
         Estudiante estudiante = buscar(id);
         if (estudiante != null) {
             estudiantes.remove(estudiante);
+            Archivos.guardarEstudiantes(estudiantes);
             System.out.println("Estudiante eliminado correctamente.");
             return true;
         }
@@ -55,8 +55,9 @@ public class GestionEstudiantes {
 
         // Mostrar la información de cada estudiante
         System.out.println("----- Lista de estudiantes -----");
+        System.out.println("cantidad total de estudiantes: " + estudiantes.size());
         for (Estudiante estudiante : estudiantes) {
-            System.out.println("ID: " + estudiante.getId());
+            System.out.println("\nID: " + estudiante.getId());
             System.out.println("Nombre: " + estudiante.getNombre() + " " + estudiante.getApellido());
             System.out.println("Notas: " + estudiante.getNotas());
             System.out.println("Promedio: " + estudiante.calcularPromedio());
