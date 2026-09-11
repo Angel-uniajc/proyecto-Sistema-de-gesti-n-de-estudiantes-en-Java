@@ -73,15 +73,13 @@ public class Estudiante {
         //calcular promedio de cada estudiante
         public double calcularPromedio()
         {
-
             if(notas.isEmpty()){
                 return 0;
             }
-
             double suma = 0;            
 
             for ( double nota : notas){
-                suma =+ nota;
+                suma += nota;
             }
 
             return  suma / notas.size();
