@@ -7,6 +7,7 @@ public class GestionEstudiantes {
     //Constructor de la clase GestionEstudiantes
     public GestionEstudiantes() {
         this.estudiantes = new ArrayList<>();
+        Archivos.cargarEstudiantes();
     }
 
     // Registrar un nuevo estudiante
@@ -17,6 +18,7 @@ public class GestionEstudiantes {
             return;
         }
         estudiantes.add(estudiante);
+        Archivos.guardarEstudiantes(estudiantes); // Guardar estudiante en "base de datos"
         System.out.println("Estudiante registrado correctamente.");
     }
 
@@ -39,6 +41,8 @@ public class GestionEstudiantes {
                 return estudiante;
             }
         }
+
+        
         return null;
     }
 
