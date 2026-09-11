@@ -77,3 +77,15 @@ public class Archivos {
                     apellido,
                     id
                 );
+
+                estudiantes.add(estudiante);
+            }
+
+            return estudiantes;
+
+        } catch (IOException e) {
+            System.out.println("ERROR AL CARGAR");
+            return estudiantes;
+        }
+    }
+}
